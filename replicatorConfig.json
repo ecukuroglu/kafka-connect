@@ -1,0 +1,32 @@
+{
+  "name": "replicator-example",
+  "config": {
+    "connector.class": "io.confluent.connect.replicator.ReplicatorSourceConnector",
+    "key.converter": "io.confluent.connect.replicator.util.ByteArrayConverter",
+    "value.converter": "io.confluent.connect.replicator.util.ByteArrayConverter",
+    "src.kafka.ssl.endpoint.identification.algorithm": "https",
+    "src.kafka.sasl.mechanism": "PLAIN",
+    "src.kafka.request.timeout.ms": "20000",
+    "src.kafka.bootstrap.servers": "<SOURCE BOOTSTRAP SERVER:9092>",
+    "src.kafka.sasl.jaas.config": "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"<API KEY>\" password=\"<API SECRET>\";",
+    "src.kafka.security.protocol": "SASL_SSL",
+    "dest.kafka.ssl.endpoint.identification.algorithm": "https",
+    "dest.kafka.sasl.mechanism": "PLAIN",
+    "dest.kafka.request.timeout.ms": "20000",
+    "dest.kafka.bootstrap.servers": "<DESTINATION BOOTSTRAP SERVER:9092>",
+    "dest.kafka.retry.backoff.ms": "500",
+    "dest.kafka.sasl.jaas.config": "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"<API KEY>\" password=\"<API SECRET>\";",
+    "dest.kafka.security.protocol": "SASL_SSL",
+    "dest.topic.replication.factor": "3",
+    "topic.regex": ".*",
+    "tasks.max": "1",
+    "confluent.topic.bootstrap.servers": "<DESTINATION BOOTSTRAP SERVER:9092>",
+    "confluent.topic.security.protocol": "SASL_SSL",
+    "confluent.topic.ssl.endpoint.identification.algorithm": "https",
+    "confluent.topic.sasl.mechanism": "PLAIN",
+    "confluent.topic.request.timeout.ms": "20000",
+    "confluent.topic.retry.backoff.ms": "500",
+    "confluent.topic.sasl.jaas.config": "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"<API KEY>\" password=\"<API SECRET>\";"
+  }
+}
+
